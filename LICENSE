@@ -66,7 +66,7 @@
 
 3) Node.js wrapper
 
-    source code for `entr` is licensed under an isc-style license, to the
+    source code for `entr-bin` is licensed under an isc-style license, to the
     following copyright holders:
 
     Robert Howard
