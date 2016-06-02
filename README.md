@@ -19,24 +19,25 @@ Entr handles many cases, but it's usage can be... finicky. It intentionally exit
 The man page has some simple examples (paraphrased):
 
 ```bash
-$ ENTR=node_modules/.bin/entr
+$ entr () { node_modules/.bin/entr "$@"; };  # A usage shortcut if you're running this in bash directly, instead of in a run-script.
 
 # Run "make all" after these files have changed:
-$ ls -d * | $ENTR make all
+$ ls -d * | entr make all
 
 # Auto-reload an app if any JS file in the src/ tree changes:
-$ find src/ | $ENTR -r node app.js
+$ find src/ | entr -r node app.js
 
 # Clear the screen and run an SQL script when it's updated:
-$ ls my.sql | $ENTR -p psql -f my.sql
+$ ls my.sql | entr -p psql -f my.sql
 ```
 
 Realistically, though, you'll want to be doing something like this:
 
 ```bash
+$ entr () { node_modules/.bin/entr "$@"; };  # See above.
+
 # Run "make all" when any JS file is added to, removed from, or updated in the src/ tree:
-$ ENTR=node_modules/.bin/entr
-$ false; while [ $? -gt 0 ]; do find src -name "*.js" | $ENTR -d make all; done
+$ false; while [ $? -gt 0 ]; do find src -name "*.js" | entr -d make all; done
 ```
 
 
