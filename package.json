@@ -1,0 +1,33 @@
+{
+  "name": "entr-bin",
+  "version": "0.0.1",
+  "description": "A thin Node.js wrapper around Eric Radman's entr (http://entrproject.org), a cross-platform file-watcher that runs on Linux, OS X and BSD.",
+  "main": "index.js",
+  "bin": {
+    "entr": "bin.js"
+  },
+  "scripts": {
+    "preinstall": "cd source && ./configure",
+    "install": "cd source && make test && env PREFIX=$(pwd)/../build make install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damncabbage/entr-bin.git"
+  },
+  "keywords": [
+    "reload",
+    "file-watcher",
+    "watch",
+    "filesystem",
+    "bin"
+  ],
+  "author": [
+    "Rob Howard <rob@robhoward.id.au>",
+    "Eric Radman <ericshane@eradman.com>"
+  ],
+  "license": "SEE LICENSE IN ./LICENSE",
+  "bugs": {
+    "url": "https://github.com/damncabbage/entr-bin/issues"
+  },
+  "homepage": "https://github.com/damncabbage/entr-bin#readme"
+}
