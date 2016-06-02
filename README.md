@@ -33,7 +33,7 @@ $ ls my.sql | $ENTR -p psql -f my.sql
 
 Realistically, though, you'll want to be doing something like this:
 
-```
+```bash
 # Run "make all" when any JS file is added to, removed from, or updated in the src/ tree:
 $ ENTR=node_modules/.bin/entr
 $ false; while [ $? -gt 0 ]; do find src -name "*.js" | $ENTR -d make all; done
